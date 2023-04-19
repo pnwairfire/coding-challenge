@@ -1,7 +1,7 @@
-# USFS AirFire coding-challenge
+# USFS AirFire Coding Challenge
 
 This directory contains a Svelte app that can be used as a starting point for
-the USFS AirFire _Coding Challenge_. For more information about Svelte, see
+the USFS AirFire Coding Challenge. For more information about Svelte, see
 https://svelte.dev.
 
 The challenges listed here and in `scripts/README.md` are suggested starting
