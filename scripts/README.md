@@ -5,7 +5,7 @@ _Updated April 19, 2023_
 ---
 
 The `scripts/` directory contains data processing scripts associated
-with the USFS AirFire coding-challenge
+with the USFS AirFire Coding Challenge
 
 # R scripts
 
