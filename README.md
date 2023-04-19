@@ -35,7 +35,7 @@ a new `my-example` Svelte app.
   in the `TimeseriesPlot.svelte` component. What does this do? Tweak other
   aspects of the Timeseries plot as you see fit.
   - create a "StatusBox" component that shows the `selected_id`
-  - add support additional _'status'_ information
+  - add support for additional _'status'_ information
 - Use bootstrap classes (_e.g._ "row" or "col-md-6") to rearrange the app into
 a single-column app appropriate for mobile devices.
 - Add further styling for mobile devices.
