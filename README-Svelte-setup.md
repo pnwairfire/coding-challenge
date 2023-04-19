@@ -100,7 +100,7 @@ npm install leaflet
 # AirFire packages
 npm install github:MazamaScience/air-monitor
 npm install github:MazamaScience/air-monitor-algorithms
-npm install github:pnwairfire/air-monitor-plots
+npm install github:pnwairfire/air-monitor-plots.git
 ```
 
 Now `npm run dev` to see the monitoring Svelte app.

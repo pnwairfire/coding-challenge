@@ -12,5 +12,17 @@
     "@sveltejs/vite-plugin-svelte": "^2.0.0",
     "svelte": "^3.54.0",
     "vite": "^4.0.0"
+  },
+  "dependencies": {
+    "@square/svelte-store": "^1.0.15",
+    "air-monitor": "github:MazamaScience/air-monitor",
+    "air-monitor-algorithms": "github:MazamaScience/air-monitor-algorithms",
+    "air-monitor-plots": "github:pnwairfire/air-monitor-plots",
+    "arquero": "^5.1.0",
+    "bootstrap": "^5.2.3",
+    "highcharts": "^10.3.3",
+    "leaflet": "^1.9.3",
+    "moment-timezone": "^0.5.43",
+    "suncalc": "^1.9.0"
   }
 }

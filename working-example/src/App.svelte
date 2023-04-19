@@ -1,45 +1,75 @@
 <script>
-  import svelteLogo from './assets/svelte.svg'
-  import Counter from './lib/Counter.svelte'
+  // Svelte stores
+  import { methow_huc10 } from './stores/polygon-data-store.js';
+  import { all_monitors, monitorLoadTime } from './stores/monitor-data-store.js';
+  import { selected_id, selected_location_name } from './stores/gui-store.js';
+  // Svelte Components
+  import AlertBox from "./components/AlertBox.svelte";
+  import TimeseriesPlot from "./components/TimeseriesPlot.svelte";
+  import LeafletMap from "./components/LeafletMap.svelte";
 </script>
 
 <main>
-  <div>
-    <a href="https://vitejs.dev" target="_blank" rel="noreferrer"> 
-      <img src="/vite.svg" class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer"> 
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
-  </div>
-  <h1>Vite + Svelte</h1>
 
-  <div class="card">
-    <Counter />
-  </div>
+	<AlertBox>
+		<b>Hover over a map icon to see a new plot.</b>
+	</AlertBox>
 
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
+	<h1>Working Example</h1>
 
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
+	{#await all_monitors.load()}
+		<p>Loading monitoring data...</p>
+	{:then}
+
+		<div class="row">
+
+			<div class="col-md-6">
+				{#if selected_id !== "" }
+				  <div class="header">Site: {$selected_location_name}</div>
+				  <div class="plot-row">
+						<TimeseriesPlot element_id="r1_timeseries" width="500px" height="200px"/>
+					</div>
+				{/if}
+			</div>
+
+			<div class="col-md-6">
+				{#await methow_huc10.load() then}
+				<div>
+					<LeafletMap width="500px" height="450px"/>
+				</div>
+				{/await}
+			</div>
+
+		</div>
+
+		<div class="status">
+			Status: selected_id = {$selected_id}
+		</div>
+
+		<div class="status">
+			Status: loaded {$all_monitors.count()} monitors in {$monitorLoadTime} seconds.
+		</div>
+
+	{:catch}
+		<p style="color: red">An error occurred</p>
+	{/await}
+
 </main>
 
 <style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
+  h1 {
+    color: coral;
   }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
+  .plot-row {
+    display: flex;
   }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
-  }
+	div.status {
+		font-size: 0.8rem;
+		text-align: left;
+		color: #888;
+	}
+	div.header {
+		font-size: 1.2rem;
+		font-weight: bold;
+	}
 </style>
