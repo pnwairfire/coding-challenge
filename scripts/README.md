@@ -36,3 +36,8 @@ Output from the script will be generated beneath the `test/` directory.
   (See <https://api.burnportal.dnr.wa.gov/api-docs/index.html> for county IDs.)
 - Try to modify the code to remove the leading blank spaces from some of the
   fields in the .geojson file.
+
+
+# Python scripts
+
+You can find the python instructions [here](./python/README.md).
